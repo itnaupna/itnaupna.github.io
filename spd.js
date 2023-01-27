@@ -12,6 +12,7 @@ Date.keybinds = {
 	'[': 'x--', ']': 'x++', // --/++ means 'prev'/'next' of Date.timeMultipliers
 	// number keys do timeskip (in seconds)
 	1: '+10', 2: '+20', 3: '+60', 4: '+300', // if over 600 game will reload
+	0: 'j++', 9: 'j--',
 }
 // optional: start speedhack when game starts
 // x20 is over the cap so wil work as 'max'
@@ -24,7 +25,7 @@ Date.keybinds = {
 // pooplib
 var q = s => document.querySelector(s);
 var makeStyle = (s, e) => (e = document.createElement('style'), e.innerHTML = s, document.head.append(e), e);
-
+let autospd = 0;
 
 Date.prototype._getTime = Date.prototype._getTime || Date.prototype.getTime;
 
@@ -68,6 +69,13 @@ addEventListener('keydown', event => {
 			Date.speedhack(Date.timeMultipliers[Date.timeMultipliers.indexOf(Date.timeMulti) + 1]);
 		} else {
 			Date.speedhack(parseFloat(keybind.slice(1)));
+		}
+	}
+	if (keybind.startsWith('j')){
+		if (keybind == 'j++'){
+			autospd = setInterval(function(){Date.speedhack(1200);},1000);
+		} else if (keybind == 'j--') {
+			clearInterval(autospd);
 		}
 	}
 });
