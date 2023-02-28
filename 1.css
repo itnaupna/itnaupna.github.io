@@ -1,0 +1,49 @@
+#tGame, #tGame *{
+    padding: 0;
+    margin:0;
+    width:auto;
+    user-select: none;
+    border-collapse: collapse;
+    border: 1px solid rgba(128,128,128,0.3);
+}
+
+#tGame tr{
+    height:30px;
+}
+#tGame td{
+    background-color:rgba(50,50,50,0.1);
+    width:30px;
+    text-align: center;
+    font-weight: bold;
+}
+.Mine, .Mine:hover{
+    background-color: red !important;
+    box-shadow: none !important;
+}
+#tGame td:hover{
+    background-color: rgba(50,50,255,0.4) !important;
+}
+#tGame td:active{
+    background-color: rgba(50,50,255,0.8) !important;
+}
+#inputMine{
+    width:50px;
+}
+.Flag{
+    background-color: greenyellow !important;
+}
+
+.Blank{
+    background-color: rgba(0,0,0,0.1) !important;
+}
+.Number{
+    background-color: rgba(0,0,0,0.2) !important;
+}
+
+.clickme{
+    box-shadow: inset 1px 1px 1px 1px white, inset 0px 0px 1px 1px black;    
+}
+
+#boxMsg{
+    color:red;
+}
