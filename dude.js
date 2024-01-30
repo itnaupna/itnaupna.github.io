@@ -1,6 +1,6 @@
 const imgElements = document.querySelectorAll("#img_list > div > img");
   imgElements.forEach(img => {
-    if(!img.hasAttribute('width')) continue;
+    //if(!img.hasAttribute('width')) continue;
     img.removeAttribute("width");  // Remove the width attribute
     img.style.maxWidth = "95vw";
     img.style.height = "100vh";  // Set style.height to 100vh
