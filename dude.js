@@ -7,6 +7,7 @@ let imgtimer = setInterval(() => {
     img.style.maxWidth = "95vw";
     img.style.height = "100vh";  // Set style.height to 100vh
     imgElements.push(img);
+    updateImageCount();
   });
   if(imgCount == imgElements.length){
     clearInterval(imgtimer);
