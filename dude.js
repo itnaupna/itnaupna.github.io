@@ -35,8 +35,10 @@ document.addEventListener("keydown", function (event) {
     } else if (event.key === "s" || event.key === "ArrowDown") {
       currentIndex = Math.min(imgElements.length - 1, currentIndex + 1);
     } else if (event.key === "g"){
-      let nn = prompt(`goto? (min 1, max ${imgElements.length})`, currentIndex + 1) || currentIndex+1;
-      currentIndex = Math.abs(parseInt(nn)-1) || currentIndex;
+      let nn = prompt(`goto? (min 1, max ${imgElements.length})`, currentIndex + 1);
+      nn = isNaN(nn) ? currentIndex + 1 : parseInt(nn)-1;
+      currentIndex = nn < 0 ? 0 : nn >= imgElements.length ? imgElements.length -1 : nn;
+      
     }
     const targetPosition = imgElements[currentIndex].offsetTop;
     window.scrollTo({
