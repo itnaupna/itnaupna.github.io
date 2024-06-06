@@ -28,12 +28,15 @@ function updateImageCount() {
   imageCountDisplay.textContent = `${currentIndex + 1}/${imgElements.length} (${imgCount})`;
 }
 document.addEventListener("keydown", function (event) {
-  if (event.key === "w" || event.key === "s" || event.key === "ArrowUp" || event.key === "ArrowDown") {
+  if (event.key === "w" || event.key === "s" || event.key === "ArrowUp" || event.key === "ArrowDown" || event.key === "g") {
     event.preventDefault();
     if (event.key === "w" || event.key === "ArrowUp") {
       currentIndex = Math.max(0, currentIndex - 1);
     } else if (event.key === "s" || event.key === "ArrowDown") {
       currentIndex = Math.min(imgElements.length - 1, currentIndex + 1);
+    } else if (event.key === "g"){
+      let nn = prompt(`goto? (min 1, max ${imgElements.length})`, currentIndex + 1) || currentIndex+1;
+      currentIndex = Math.abs(parseInt(nn)-1) || currentIndex;
     }
     const targetPosition = imgElements[currentIndex].offsetTop;
     window.scrollTo({
